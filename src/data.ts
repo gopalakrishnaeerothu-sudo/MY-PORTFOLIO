@@ -11,14 +11,15 @@ export const profile = {
   heroImage: "/gk-hero.webp", // transparent cut-out, works on light and dark
   photo: "/gk-photo.png",
   about:
-    "I turn business requirements into scalable software. From multi-tenant SaaS architecture and database design " +
-    "to payments, WhatsApp automation and clean interfaces, i build products that real temples, restaurants, " +
-    "stores and teams run on. Let's build something incredible together!",
+    "I don't just build websites, I build whole SaaS products. One codebase, many businesses: each with its own " +
+    "isolated data, subdomain, roles and branded website. I design the Postgres schema, the secure multi-tenant backend, " +
+    "the payments, WhatsApp bots and real-time kitchen screens, then ship the interface people actually use. " +
+    "Temples, restaurants, stores and HR teams already run on what I've built. Let's build yours next!",
   facts: [
-    { label: "Company", value: "KRANAS TECH & SOLUTIONS PVT LTD" },
+    { label: "Company", value: "Signitives Technologies LLC" },
     { label: "Education", value: "B.Com · AKRG Institution · 2023" },
-    { label: "Based in", value: "Telangana, India (from Andhra Pradesh)" },
-    { label: "Open to", value: "Opportunities in Dubai, UAE" },
+    { label: "Based in", value: "Andhra Pradesh, India" },
+    { label: "Open to", value: "Opportunities across India" },
   ],
   // Leave a value empty to hide its button.
   email: "gopalakrishnaeerothu@gmail.com",

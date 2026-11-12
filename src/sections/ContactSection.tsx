@@ -44,7 +44,7 @@ export default function ContactSection() {
       </FadeIn>
 
       <footer className="mt-16 text-sm font-light uppercase tracking-widest text-fg/40">
-        © {new Date().getFullYear()} {profile.fullName} · KRANAS TECH & SOLUTIONS
+        © {new Date().getFullYear()} {profile.fullName} · Signitives Technologies LLC
       </footer>
     </section>
   );
