@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { background: #0C0C0C; font-family: "Kanit", sans-serif; }
+html { scroll-behavior: smooth; }
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Blend the black-background portrait into the page */
+.portrait-mask {
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 68%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 68%, transparent 100%);
+}
+
+/* Decorative 3D objects in About */
+@keyframes float { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+.float-slow { animation: float 6s ease-in-out infinite; }
+.cube-size { --s: 72px; }
+@media (min-width: 640px) { .cube-size { --s: 96px; } }
+@media (min-width: 768px) { .cube-size { --s: 126px; } }
+@keyframes spin3d { to { transform: translateY(30%) rotateX(360deg) rotateY(720deg); } }
+.spin-cube { animation: spin3d 18s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float-slow, .spin-cube { animation: none; }
+}
