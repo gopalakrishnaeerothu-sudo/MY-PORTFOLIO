@@ -7,7 +7,7 @@ import ContactSection from "./sections/ContactSection";
 
 export default function App() {
   return (
-    <main className="bg-[#0C0C0C]" style={{ overflowX: "clip" }}>
+    <main className="bg-page" style={{ overflowX: "clip" }}>
       <HeroSection />
       <MarqueeSection />
       <AboutSection />

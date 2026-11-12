@@ -8,7 +8,7 @@ export const profile = {
   fullName: "Erothu Gopala Krishna",
   role: "Full-Stack Developer & SaaS Product Builder",
   heroLine: "a full-stack developer building scalable saas products end to end",
-  heroImage: "/gk-hero.png",
+  heroImage: "/gk-hero.webp", // transparent cut-out, works on light and dark
   photo: "/gk-photo.png",
   about:
     "I turn business requirements into scalable software. From multi-tenant SaaS architecture and database design " +
@@ -76,9 +76,19 @@ export type Project = {
   live?: string;
   repo?: string;
   image?: string; // optional screenshot in /public; a designed panel shows when empty
-  accent: [string, string];
   featured?: boolean; // featured projects get the big stacking cards
 };
+
+// Brand palette (also defined as CSS variables in src/index.css)
+export const palette = { orange: "#FF9E20", teal: "#215E61", ink: "#1D2128", paper: "#F4F2F2" };
+
+// Project panels cycle through these palette gradients (start colour stays dark so white text reads well).
+const accentPairs: [string, string][] = [
+  [palette.teal, palette.orange],
+  ["#2A303B", palette.orange],
+  [palette.teal, "#2A303B"],
+];
+export const accentFor = (i: number) => accentPairs[i % accentPairs.length];
 
 export const projects: Project[] = [
   {
@@ -90,7 +100,6 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Firebase Auth", "WhatsApp Cloud API", "Razorpay"],
     live: "https://trytempleos.com",
     repo: "https://github.com/SusanthKakarla/TempleOS",
-    accent: ["#ff9f43", "#B600A8"],
     featured: true,
   },
   {
@@ -102,7 +111,6 @@ export const projects: Project[] = [
     stack: ["Next.js 16", "PostgreSQL", "Drizzle", "Clerk", "Railway", "Playwright"],
     live: "https://ecom-production-f9860cea.up.railway.app",
     repo: "https://github.com/productsmy385-spl/ECOM",
-    accent: ["#e84393", "#7621B0"],
     featured: true,
   },
   {
@@ -112,7 +120,6 @@ export const projects: Project[] = [
       "Multi-tenant, multi-outlet restaurant platform with individual restaurant websites and QR ordering.",
     features: ["Digital menus & QR ordering", "KOT & kitchen printers", "Billing & payments", "Delivery management", "WhatsApp & IVR", "Staff roles"],
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Clerk", "Redis", "Socket.io", "ImageKit"],
-    accent: ["#feca57", "#BE4C00"],
     featured: true,
   },
   {
@@ -122,7 +129,6 @@ export const projects: Project[] = [
       "Ordering, kitchen display and delivery for bakeries — with voice order announcements and live ETAs.",
     features: ["Product catalog", "Kitchen Display System", "Voice announcements", "Delivery ETAs", "Multi-agent WhatsApp inbox", "Telephony"],
     stack: ["Next.js", "PostgreSQL", "Redis", "Socket.io", "WhatsApp Cloud API", "Google Maps API"],
-    accent: ["#ff6b6b", "#7621B0"],
     featured: true,
   },
   {
@@ -131,7 +137,6 @@ export const projects: Project[] = [
     description: "Projects, tasks, workflows, a knowledge base and team collaboration in one productivity SaaS.",
     features: ["Project & task management", "Business workflows", "Knowledge base", "Team collaboration", "Workflow automation"],
     stack: ["Next.js 16", "FastAPI", "Python", "PostgreSQL", "SQLAlchemy", "TanStack Query"],
-    accent: ["#54a0ff", "#B600A8"],
     featured: true,
   },
   {
@@ -141,7 +146,6 @@ export const projects: Project[] = [
     features: ["Tenant storefronts", "Role-based console", "Super-admin console", "Thermal print agent"],
     stack: ["Next.js 15", "Prisma", "Clerk", "Tailwind v4"],
     repo: "https://github.com/productsmy385-spl/DIGITALSETU-OS",
-    accent: ["#00d2d3", "#5f27cd"],
   },
   {
     name: "RasoiOS",
@@ -150,7 +154,6 @@ export const projects: Project[] = [
     features: ["Orders & KOT", "Cloud print queue", "Payments ledger", "Social menu cards"],
     stack: ["Next.js", "Prisma", "Clerk", "PostgreSQL"],
     repo: "https://github.com/productsmy385-spl/RasoiOS",
-    accent: ["#feca57", "#ff6b6b"],
   },
   {
     name: "Adira Wellness",
@@ -159,7 +162,6 @@ export const projects: Project[] = [
     features: ["Yoga & diet engines", "Daily check-ins", "Tenant websites", "RBAC"],
     stack: ["Next.js 16", "PostgreSQL", "shadcn/ui", "Railway"],
     repo: "https://github.com/productsmy385-spl/ADIRA-YOGA-DIET-GREENFIELD",
-    accent: ["#1dd1a1", "#10ac84"],
   },
   {
     name: "TaskFlow HR",
@@ -168,7 +170,6 @@ export const projects: Project[] = [
     features: ["Geofenced attendance", "Task board & calendar", "Approvals", "Audit trail"],
     stack: ["Next.js 15", "PostgreSQL", "Tailwind v4"],
     repo: "https://github.com/gopalakrishnaeerothu-sudo/HRM",
-    accent: ["#54a0ff", "#2e86de"],
   },
   {
     name: "QueueLess",
@@ -177,7 +178,6 @@ export const projects: Project[] = [
     features: ["Digital tickets", "Live position", "Business console"],
     stack: ["Expo", "React Native", "Fastify", "PostgreSQL"],
     repo: "https://github.com/gopalakrishnaeerothu-sudo/QueueLess",
-    accent: ["#48dbfb", "#0abde3"],
   },
   {
     name: "Marketives",
@@ -185,7 +185,6 @@ export const projects: Project[] = [
     description: "Knowledge base architecture, ERDs, API documentation and rollout planning for a business platform.",
     features: ["ERD design", "API documentation", "Data retention", "Rollout planning"],
     stack: ["System Design", "PostgreSQL"],
-    accent: ["#a29bfe", "#6c5ce7"],
   },
   {
     name: "Stickman Video Director",
@@ -193,6 +192,5 @@ export const projects: Project[] = [
     description: "Automated YouTube videos: script, AI images and voice, rendered end to end with FFmpeg.",
     features: ["Script generation", "AI images & voice", "FFmpeg rendering"],
     stack: ["Python", "AI APIs", "FFmpeg"],
-    accent: ["#B600A8", "#BE4C00"],
   },
 ];

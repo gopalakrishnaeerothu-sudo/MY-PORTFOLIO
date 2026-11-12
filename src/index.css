@@ -2,21 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Palette: orange #FF9E20 · teal #215E61 · ink #1D2128 · paper #F4F2F2 (values are "R G B") */
+:root,
+[data-theme="dark"] {
+  --orange: 255 158 32;
+  --teal: 33 94 97;
+  --bg: 29 33 40;
+  --fg: 244 242 242;
+  --surface: 39 45 55;
+  --hl: 255 158 32;
+  --hh-from: 96 132 134;
+  --hh-to: 244 242 242;
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: 244 242 242;
+  --fg: 29 33 40;
+  --surface: 255 255 255;
+  --hl: 33 94 97;
+  --hh-from: 33 94 97;
+  --hh-to: 29 33 40;
+  color-scheme: light;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body, #root { background: #0C0C0C; font-family: "Kanit", sans-serif; }
+html, body, #root {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: "Kanit", sans-serif;
+  transition: background-color .4s ease, color .4s ease;
+}
 html { scroll-behavior: smooth; }
 
 .hero-heading {
-  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  background: linear-gradient(180deg, rgb(var(--hh-from)) 0%, rgb(var(--hh-to)) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* Blend the black-background portrait into the page */
-.portrait-mask {
-  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 68%, transparent 100%);
-  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 68%, transparent 100%);
 }
 
 /* Decorative 3D objects in About */
